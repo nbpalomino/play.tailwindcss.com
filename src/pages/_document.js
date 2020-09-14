@@ -1,6 +1,7 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 import * as fs from 'fs'
 import * as path from 'path'
+import glob from 'glob'
 
 class InlineStylesHead extends Head {
   getCssLinks(files) {
@@ -19,6 +20,13 @@ class InlineStylesHead extends Head {
           }}
         />
       ))
+  }
+  getPreloadDynamicChunks() {
+    const [file] = glob.sync('static/chunks/monaco-editor*', {
+      cwd: path.resolve(process.cwd(), '.next'),
+    })
+    this.context.dynamicImports.push({ file })
+    return super.getPreloadDynamicChunks()
   }
 }
 

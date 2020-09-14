@@ -10,7 +10,10 @@ import { Logo } from '../components/Logo'
 import useMedia from 'react-use/lib/useMedia'
 import defaultContent from '../preval/defaultContent'
 
-const Editor = dynamic(import('../components/Editor'), { ssr: false })
+const Editor = dynamic(
+  import(/* webpackChunkName: 'monaco-editor' */ '../components/Editor'),
+  { ssr: false }
+)
 
 function TabButton({ isActive, onClick, children }) {
   return (
