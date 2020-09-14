@@ -25,6 +25,7 @@
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x",
+    "glob": "^7.1.6",
     "line-column": "^1.0.2",
     "lz-string": "^1.4.4",
     "monaco-editor": "^0.20.0",
